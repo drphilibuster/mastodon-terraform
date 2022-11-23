@@ -157,42 +157,42 @@ data "template_file" "mastodon_environment_variables_rails" {
   JSON
 
   vars {
-    mastodon_aws_access_key_id           = "${var.mastodon_aws_access_key_id}"
-    mastodon_aws_secret_access_key       = "${var.mastodon_aws_secret_access_key}"
-    mastodon_db_host                     = "${aws_db_instance.mastodon.address}"
-    mastodon_db_name                     = "${aws_db_instance.mastodon.name}"
-    mastodon_db_pass                     = "${var.mastodon_db_pass}"
-    mastodon_db_port                     = "${aws_db_instance.mastodon.port}"
-    mastodon_db_user                     = "${aws_db_instance.mastodon.username}"
-    mastodon_default_locale              = "${var.mastodon_default_locale}"
-    mastodon_email_domain_blacklist      = "${var.mastodon_email_domain_blacklist}"
-    mastodon_email_domain_whitelist      = "${var.mastodon_email_domain_whitelist}"
-    mastodon_local_domain                = "${var.mastodon_local_domain}"
-    mastodon_local_https                 = "${var.aws_acm_certificate_arn == "" ? "false" : "true"}"
-    mastodon_otp_secret                  = "${var.mastodon_otp_secret}"
-    mastodon_paperclip_root_path         = "${var.mastodon_paperclip_root_path}"
-    mastodon_paperclip_root_url          = "${var.mastodon_paperclip_root_url}"
-    mastodon_paperclip_secret            = "${var.mastodon_paperclip_secret}"
-    mastodon_prepared_statements         = "${var.mastodon_prepared_statements}"
-    mastodon_redis_host                  = "${aws_elasticache_cluster.mastodon.cache_nodes.0.address}"
-    mastodon_redis_port                  = "${aws_elasticache_cluster.mastodon.cache_nodes.0.port}"
-    mastodon_s3_bucket                   = "${var.aws_s3_bucket_name}"
-    mastodon_s3_cloudfront_host          = "${var.mastodon_s3_cloudfront_host}"
-    mastodon_s3_region                   = "${data.aws_region.current.name}"
-    mastodon_secret_key_base             = "${var.mastodon_secret_key_base}"
-    mastodon_single_user_mode            = "${var.mastodon_single_user_mode}"
-    mastodon_smtp_auth_method            = "${var.mastodon_smtp_auth_method}"
-    mastodon_smtp_delivery_method        = "${var.mastodon_smtp_delivery_method}"
-    mastodon_smtp_domain                 = "${var.mastodon_smtp_domain}"
-    mastodon_smtp_enable_starttls_auto   = "${var.mastodon_smtp_enable_starttls_auto}"
-    mastodon_smtp_from_address           = "${var.mastodon_smtp_from_address}"
-    mastodon_smtp_login                  = "${var.mastodon_smtp_login}"
-    mastodon_smtp_openssl_verify_mode    = "${var.mastodon_smtp_openssl_verify_mode}"
-    mastodon_smtp_password               = "${var.mastodon_smtp_password}"
-    mastodon_smtp_port                   = "${var.mastodon_smtp_port}"
-    mastodon_smtp_server                 = "${var.mastodon_smtp_server}"
-    mastodon_node_streaming_api_base_url = "${var.mastodon_node_streaming_api_base_url}"
-    mastodon_node_streaming_cluster_num  = "${var.mastodon_node_streaming_cluster_num}"
+    mastodon_aws_access_key_id           = var.mastodon_aws_access_key_id
+    mastodon_aws_secret_access_key       = var.mastodon_aws_secret_access_key
+    mastodon_db_host                     = aws_db_instance.mastodon.address
+    mastodon_db_name                     = aws_db_instance.mastodon.name
+    mastodon_db_pass                     = var.mastodon_db_pass
+    mastodon_db_port                     = aws_db_instance.mastodon.port
+    mastodon_db_user                     = aws_db_instance.mastodon.username
+    mastodon_default_locale              = var.mastodon_default_locale
+    mastodon_email_domain_blacklist      = var.mastodon_email_domain_blacklist
+    mastodon_email_domain_whitelist      = var.mastodon_email_domain_whitelist
+    mastodon_local_domain                = var.mastodon_local_domain
+    mastodon_local_https                 = var.aws_acm_certificate_arn == "" ? "false" : "true"
+    mastodon_otp_secret                  = var.mastodon_otp_secret
+    mastodon_paperclip_root_path         = var.mastodon_paperclip_root_path
+    mastodon_paperclip_root_url          = var.mastodon_paperclip_root_url
+    mastodon_paperclip_secret            = var.mastodon_paperclip_secret
+    mastodon_prepared_statements         = var.mastodon_prepared_statements
+    mastodon_redis_host                  = aws_elasticache_cluster.mastodon.cache_nodes.0.address
+    mastodon_redis_port                  = aws_elasticache_cluster.mastodon.cache_nodes.0.port
+    mastodon_s3_bucket                   = var.aws_s3_bucket_name
+    mastodon_s3_cloudfront_host          = var.mastodon_s3_cloudfront_host
+    mastodon_s3_region                   = data.aws_region.current.name
+    mastodon_secret_key_base             = var.mastodon_secret_key_base
+    mastodon_single_user_mode            = var.mastodon_single_user_mode
+    mastodon_smtp_auth_method            = var.mastodon_smtp_auth_method
+    mastodon_smtp_delivery_method        = var.mastodon_smtp_delivery_method
+    mastodon_smtp_domain                 = var.mastodon_smtp_domain
+    mastodon_smtp_enable_starttls_auto   = var.mastodon_smtp_enable_starttls_auto
+    mastodon_smtp_from_address           = var.mastodon_smtp_from_address
+    mastodon_smtp_login                  = var.mastodon_smtp_login
+    mastodon_smtp_openssl_verify_mode    = var.mastodon_smtp_openssl_verify_mode
+    mastodon_smtp_password               = var.mastodon_smtp_password
+    mastodon_smtp_port                   = var.mastodon_smtp_port
+    mastodon_smtp_server                 = var.mastodon_smtp_server
+    mastodon_node_streaming_api_base_url = var.mastodon_node_streaming_api_base_url
+    mastodon_node_streaming_cluster_num  = var.mastodon_node_streaming_cluster_num
   }
 }
 

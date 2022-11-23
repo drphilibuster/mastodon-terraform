@@ -1,5 +1,5 @@
 resource "aws_alb" "mastodon" {
-  name = "${var.aws_resource_base_name}"
+  name = var.aws_resource_base_name
 
   subnets = [
     "${aws_subnet.mastodon_public_a.id}",

@@ -11,14 +11,14 @@ resource "aws_alb_target_group" "mastodon_node_streaming" {
   }
 
   name     = "${var.aws_resource_base_name}-node-streaming"
-  port     = "${var.mastodon_node_streaming_port}"
+  port     = var.mastodon_node_streaming_port
   protocol = "HTTP"
 
   stickiness {
     type = "lb_cookie"
   }
 
-  vpc_id = "${aws_vpc.mastodon.id}"
+  vpc_id = aws_vpc.mastodon.id
 }
 
 resource "aws_alb_target_group" "mastodon_rails_puma" {
@@ -41,5 +41,5 @@ resource "aws_alb_target_group" "mastodon_rails_puma" {
     type = "lb_cookie"
   }
 
-  vpc_id = "${aws_vpc.mastodon.id}"
+  vpc_id = aws_vpc.mastodon.id
 }

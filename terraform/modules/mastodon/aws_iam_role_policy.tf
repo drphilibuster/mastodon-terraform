@@ -20,5 +20,5 @@ resource "aws_iam_role_policy" "mastodon_rails" {
   }
   JSON
 
-  role = "${aws_iam_role.mastodon_rails.id}"
+  role = aws_iam_role.mastodon_rails.id
 }

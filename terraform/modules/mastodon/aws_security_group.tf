@@ -1,36 +1,43 @@
 resource "aws_security_group" "mastodon_alb" {
   name   = "${var.aws_resource_base_name}_alb"
   vpc_id = "${aws_vpc.mastodon.id}"
-
-  ingress = {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress = {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress = {
-    from_port   = "${var.mastodon_node_streaming_port}"
-    to_port     = "${var.mastodon_node_streaming_port}"
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 }
 
+resource "aws_security_group_rule" "mastadon_alb_ingress_1" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  cidr_blocks = ["0.0.0.0/0"]
+  protocol          = "tcp"
+  security_group_id = aws_security_group.mastodon_alb.id
+}
+
+resource "aws_security_group_rule" "mastadon_alb_ingress_2" {
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mastodon_alb.id
+}
+
+resource "aws_security_group_rule" "mastadon_alb_ingress_3" {
+  type              = "ingress"
+  from_port         = "${var.mastodon_node_streaming_port}"
+  to_port           = "${var.mastodon_node_streaming_port}"
+  protocol          = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mastodon_alb.id
+}
+
+resource "aws_security_group_rule" "mastadon_alb_ingress_4" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mastodon_alb.id
+}
 resource "aws_security_group" "mastodon_web" {
   name   = "${var.aws_resource_base_name}_web"
   vpc_id = "${aws_vpc.mastodon.id}"

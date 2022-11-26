@@ -97,7 +97,7 @@ variable "mastodon_db_user" {
 }
 
 variable "mastodon_default_locale" {
-  default = "en"
+  default = ""
 }
 
 variable "mastodon_docker_image_tag" {

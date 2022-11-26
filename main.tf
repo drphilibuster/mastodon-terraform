@@ -2,7 +2,7 @@
 terraform {
     backend "remote" {
     # The name of your Terraform Cloud organization.
-    organization = "computer-age-recordings"
+    organization = "computeragerecordings"
 
     # The name of the Terraform Cloud workspace to store Terraform state files in.
     workspaces {

@@ -160,7 +160,7 @@ data "template_file" "mastodon_environment_variables_rails" {
     mastodon_aws_access_key_id           = var.mastodon_aws_access_key_id
     mastodon_aws_secret_access_key       = var.mastodon_aws_secret_access_key
     mastodon_db_host                     = aws_db_instance.mastodon.address
-    mastodon_db_name                     = aws_db_instance.mastodon.name
+    mastodon_db_name                     = aws_db_instance.mastodon.db_name
     mastodon_db_pass                     = var.mastodon_db_pass
     mastodon_db_port                     = aws_db_instance.mastodon.port
     mastodon_db_user                     = aws_db_instance.mastodon.username

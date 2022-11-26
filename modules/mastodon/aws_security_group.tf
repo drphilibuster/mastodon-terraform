@@ -64,7 +64,7 @@ resource "aws_security_group" "mastodon_db" {
   name   = "${var.aws_resource_base_name}_db"
   vpc_id = aws_vpc.mastodon.id
 
-  ingress = {
+  ingress {
     from_port = 5432
     to_port   = 5432
     protocol  = "tcp"
@@ -86,7 +86,7 @@ resource "aws_security_group" "mastodon_elasticache" {
   name   = "${var.aws_resource_base_name}_elasticache"
   vpc_id = aws_vpc.mastodon.id
 
-  ingress = {
+  ingress {
     from_port = 6379
     to_port   = 6379
     protocol  = "tcp"

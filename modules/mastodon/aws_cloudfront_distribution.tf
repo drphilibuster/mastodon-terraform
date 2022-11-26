@@ -3,7 +3,7 @@ resource "aws_cloudfront_distribution" "mastodon" {
   comment = "mastodon"
   enabled = true
 
-  default_cache_behavior {
+  ordered_cache_behavior {
     allowed_methods        = ["GET", "HEAD"]
     cached_methods         = ["GET", "HEAD"]
     default_ttl            = 3600

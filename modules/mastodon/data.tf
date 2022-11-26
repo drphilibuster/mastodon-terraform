@@ -156,7 +156,7 @@ data "template_file" "mastodon_environment_variables_rails" {
   ]
   JSON
 
-  vars {
+  var {
     mastodon_aws_access_key_id           = var.mastodon_aws_access_key_id
     mastodon_aws_secret_access_key       = var.mastodon_aws_secret_access_key
     mastodon_db_host                     = aws_db_instance.mastodon.address

@@ -90,7 +90,9 @@ variable "mastodon_db_name" {
   default = "mastodon"
 }
 
-variable "mastodon_db_pass" {}
+variable "mastodon_db_pass" {
+  default = ""
+}
 
 variable "mastodon_db_user" {
   default = "root"
@@ -116,9 +118,13 @@ variable "mastodon_email_domain_whitelist" {
   default = ""
 }
 
-variable "mastodon_local_domain" {}
+variable "mastodon_local_domain" {
+  default = ""
+}
 
-variable "mastodon_otp_secret" {}
+variable "mastodon_otp_secret" {
+  default = ""
+}
 
 variable "mastodon_paperclip_root_path" {
   default = ":rails_root/public/system"
@@ -140,7 +146,9 @@ variable "mastodon_s3_cloudfront_host" {
   default = ""
 }
 
-variable "mastodon_secret_key_base" {}
+variable "mastodon_secret_key_base" {
+  default = ""
+}
 
 variable "mastodon_single_user_mode" {
   default = "false"

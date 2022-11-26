@@ -4,13 +4,13 @@ resource "aws_cloudfront_distribution" "mastodon" {
   enabled = true
 
   ordered_cache_behavior {
+    path_pattern           = "/assets/*"
     allowed_methods        = ["GET", "HEAD"]
     cached_methods         = ["GET", "HEAD"]
     default_ttl            = 3600
     max_ttl                = 86400
     min_ttl                = 0
     viewer_protocol_policy = "allow-all"
-    path_pattern           = "/assets/*"
     compress               = true
     target_origin_id       = "mastodon_alb"
 
@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "mastodon" {
     error_code            = 404
   }
 
-  default_cache_behavior {
+  ordered_cache_behavior {
     allowed_methods        = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
     cached_methods         = ["GET", "HEAD"]
     default_ttl            = 0

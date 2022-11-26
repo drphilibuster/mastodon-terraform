@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "mastodon" {
 }
 
 resource "aws_s3_bucket_cors_configuration" "mastadon_cors" {
-  bucket = aws_s3_bucket.mastadon.id
+  bucket = aws_s3_bucket.mastodon.id
 
   cors_rule {
     allowed_headers = ["*"]

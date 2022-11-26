@@ -1,5 +1,5 @@
 data "aws_region" "current" {
-  current = true
+  name = "us-east-1"
 }
 
 data "template_file" "mastodon_environment_variables_rails" {

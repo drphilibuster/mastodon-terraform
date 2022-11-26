@@ -42,7 +42,7 @@ resource "aws_security_group" "mastodon_web" {
   name   = "${var.aws_resource_base_name}_web"
   vpc_id = aws_vpc.mastodon.id
 
-  ingress = {
+  ingress {
     from_port = 0
     to_port   = 65535
     protocol  = "tcp"
